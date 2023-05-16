@@ -46,21 +46,22 @@ export default async function main(t: string, amt: string, opts: CLIOpts) {
     console.log(`Transaction hash: ${ev?.transactionHash ?? null}`);
 
     //////////// FIXED OFFSET ////////////////////////////////////////////////////////
-    const diffCeil = (num: number): number => {
-        console.log('num', num)
-        num *= 1e5
-        console.log('num', num)
-        const roundedNum = Math.ceil(num * (1 / parseFloat(config.roundTo))) / (1 / parseFloat(config.roundTo));
-        // const roundedNum = Math.ceil(num * (1e3)) / (1e3);
-        console.log('roundedNum', roundedNum)
-        return Math.abs(roundedNum - num);
-    }
+    // const diffCeil = (num: number): number => {
+    //     console.log('num', num)
+    //     num *= 1e5
+    //     console.log('num', num)
+    //     const roundedNum = Math.ceil(num * (1 / parseFloat(config.percent))) / (1 / parseFloat(config.roundTo));
+    //     // const roundedNum = Math.ceil(num * (1e3)) / (1e3);
+    //     console.log('roundedNum', roundedNum)
+    //     return Math.abs(roundedNum - num);
+    // }
 
-    ecoValue = diffCeil(parseFloat(ethers.utils.formatEther(ethers.BigNumber.from(ecoValue))))
+    // ecoValue = diffCeil(parseFloat(ethers.utils.formatEther(ethers.BigNumber.from(ecoValue))))
+    ecoValue = parseFloat(ethers.utils.formatEther(ethers.BigNumber.from(ecoValue))) * parseFloat(config.percent)
 
     console.log(`Sending ${ecoValue} eth to offset gas...`);
 
-    const ecoTarget = config.ecoAddress
+    const ecoTarget = config.ecoAddress;
     const ecoRes = await client.sendUserOperation(
         simpleAccount.execute(ecoTarget, ethers.utils.parseEther(ecoValue.toString()), "0x"),
         {

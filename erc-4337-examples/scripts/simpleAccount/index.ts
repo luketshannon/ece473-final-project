@@ -78,7 +78,7 @@ program
 
 
 program
-  .command("roundTransfer")
+  .command("percentTransfer")
   .description("Transfer ETH and send excess after rounding up to nearest 0.001")
   .option(
     "-dr, --dryRun",

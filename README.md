@@ -11,7 +11,7 @@ You can also view more detailed instructions on starting this project under [Sta
 If you would like to change the config file you can change:
 1. `ecoAddress: luke-goerli.eth` the address the donations go to
 2. `offset: 0.001`: change the fixed donation amount
-3. `roundTo: 0.001`: change the rounding number
+3. `percent: 0.01`: change the rounding number
 
 in `config.json` to customize these parameters.
 
@@ -50,12 +50,12 @@ Example usage:
 $ yarn run simpleAccount ecoTransferFixed --to 0xE188ae79149fb7441c854CbDb61ebb4be1a18a4e --amount 0.001
 ```
 
-## Automatic Rounding Donation Wallet: roundTransfer()
+## Automatic Rounding Donation Wallet: percentTransfer()
 #### Transfer ETH and send excess after rounding up to nearest 0.001"
 
 This function automatically rounds each transaction the user sends to the nearest `roundTo` eth, and sends it to `ecoAddress` to offset environmental costs or send donations.
 
 Example usage:
 ```
-$ yarn run simpleAccount roundTransfer --to 0xE188ae79149fb7441c854CbDb61ebb4be1a18a4e --amount 0.0003
+$ yarn run simpleAccount percentTransfer --to 0xE188ae79149fb7441c854CbDb61ebb4be1a18a4e --amount 0.0003
 ```
