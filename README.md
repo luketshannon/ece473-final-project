@@ -6,7 +6,8 @@ To begin using this project, run:
 ```
 $ yarn install
 ```
-You can also view more detailed instructions on starting this project under [Stackup's readme](./erc-4337-examples/README.md). (Make sure to save the `config.json` file we have provided, however.)
+
+You may have to downgrade to node `^18`, which can be done using [nvm](http://nvm.sh/). You can also view more detailed instructions on starting this project under [Stackup's readme](./erc-4337-examples/README.md). (Make sure to save the `config.json` file we have provided, however.)
 
 If you would like to change the config file you can change:
 1. `ecoAddress: luke-goerli.eth` the address the donations go to
