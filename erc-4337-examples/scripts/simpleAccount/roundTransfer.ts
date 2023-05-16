@@ -57,13 +57,13 @@ export default async function main(t: string, amt: string, opts: CLIOpts) {
     // }
 
     // ecoValue = diffCeil(parseFloat(ethers.utils.formatEther(ethers.BigNumber.from(ecoValue))))
-    ecoValue = parseFloat(ethers.utils.formatEther(ethers.BigNumber.from(ecoValue))) * parseFloat(config.percent)
+    ecoValue = ethers.utils.parseEther((parseFloat(amt) * parseFloat(config.percent)).toString())
 
-    console.log(`Sending ${ecoValue} eth to offset gas...`);
+    console.log(`Sending ${config.percent} of the original transaction...`);
 
     const ecoTarget = config.ecoAddress;
     const ecoRes = await client.sendUserOperation(
-        simpleAccount.execute(ecoTarget, ethers.utils.parseEther(ecoValue.toString()), "0x"),
+        simpleAccount.execute(ecoTarget, ecoValue, "0x"),
         {
             dryRun: opts.dryRun,
             onBuild: (op) => {

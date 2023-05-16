@@ -2,17 +2,14 @@
 
 ### Instructions:
 
-To begin using this project, run:
-```
-$ yarn install
-```
+To begin using this project, run `cd erc-4337-examples` and `$ yarn install`.
 
-You may have to downgrade to node `^18`, which can be done using [nvm](http://nvm.sh/). You can also view more detailed instructions on starting this project under [Stackup's readme](./erc-4337-examples/README.md). (Make sure to save the `config.json` file we have provided, however.)
+You may have to downgrade to node `^18`, which can be done using [nvm](http://nvm.sh/). You can also view more detailed instructions on starting this project (and instructions for running simpler transfers) under [Stackup's readme](./erc-4337-examples/README.md). (Make sure to save the `config.json` file we have provided, however. If there are any issues, please reach out to a team member.)
 
 If you would like to change the config file you can change:
 1. `ecoAddress: luke-goerli.eth` the address the donations go to
 2. `offset: 0.001`: change the fixed donation amount
-3. `percent: 0.01`: change the rounding number
+3. `percent: 0.001`: change the rounding number
 
 in `config.json` to customize these parameters.
 
